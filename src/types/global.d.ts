@@ -19,6 +19,15 @@ export interface GameState {
   isGameOver: boolean;
 }
 
+export interface GameSetupProps {
+  onStartGame: (config: {
+    theme: Theme;
+    gridSize: GridSize;
+    gameMode: GameMode;
+    playerCount: number;
+  }) => void;
+}
+
 export interface Tile {
   id: number;
   value: string;
