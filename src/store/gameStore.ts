@@ -1,15 +1,8 @@
 import { create } from "zustand";
-import {
-  GameInterface,
-  Theme,
-  GridSize,
-  GameMode,
-  Player,
-  Tile,
-} from "../types/global";
+import { GameStore } from "../types/global";
 import { generateTiles } from "../utils/gameUtils";
 
-export const useGameStore = create<GameInterface>((set, get) => ({
+export const useGameStore = create<GameStore>((set, get) => ({
   tiles: [],
   flippedTiles: [],
   players: [],
@@ -47,6 +40,63 @@ export const useGameStore = create<GameInterface>((set, get) => ({
       isGameOver: false,
       flippedTiles: [],
     });
+  },
+
+  flipTile: (tileId) => {
+    const { tiles, flippedTiles, currentPlayer } = get();
+
+    if (flippedTiles.length === 2) return;
+
+    set((state) => ({
+      tiles: state.tiles.map((tile) =>
+        tile.id === tileId ? { ...tile, isFlipped: true } : tile
+      ),
+      flippedTiles: [...state.flippedTiles, tileId],
+    }));
+
+    if (flippedTiles.length === 1) {
+      const [firstTileId] = flippedTiles;
+      const firstTile = tiles.find((t) => t.id === firstTileId);
+      const secondTile = tiles.find((t) => t.id === tileId);
+
+      if (firstTile && secondTile && firstTile.value === secondTile.value) {
+        setTimeout(() => {
+          set((state) => ({
+            tiles: state.tiles.map((tile) =>
+              tile.id === firstTileId || tile.id === tileId
+                ? { ...tile, isMatched: true }
+                : tile
+            ),
+            players: state.players.map((player, idx) =>
+              idx === currentPlayer
+                ? { ...player, score: player.score + 1 }
+                : player
+            ),
+            flippedTiles: [],
+          }));
+        }, 500);
+      } else {
+        setTimeout(() => {
+          set((state) => ({
+            tiles: state.tiles.map((tile) =>
+              tile.id === firstTileId || tile.id === tileId
+                ? { ...tile, isFlipped: false }
+                : tile
+            ),
+            currentPlayer: (state.currentPlayer + 1) % state.players.length,
+            flippedTiles: [],
+          }));
+        }, 1000);
+      }
+
+      set((state) => ({
+        players: state.players.map((player, idx) =>
+          idx === currentPlayer
+            ? { ...player, moves: player.moves + 1 }
+            : player
+        ),
+      }));
+    }
   },
 
   incrementTime: () => set((state) => ({ timeElapsed: state.timeElapsed + 1 })),
