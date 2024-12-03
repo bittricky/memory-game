@@ -41,7 +41,7 @@ const icons = [
   Bike,
 ];
 
-export const generateTiles = (gridSize: GridSize, theme: Theme): Tile[] => {
+export const generateTiles = (theme: Theme, gridSize: GridSize): Tile[] => {
   const pairCount = gridSize === "4x4" ? 8 : 18;
   const values =
     theme === "numbers"
