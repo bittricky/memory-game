@@ -36,6 +36,12 @@ interface GameControlsProps {
   onNewGame: () => void;
 }
 
+interface GameBoardProps {
+  tiles: TileType[];
+  gridSize: "4x4" | "6x6";
+  onTileClick: (id: number) => void;
+}
+
 export interface Tile {
   id: number;
   value: string;
