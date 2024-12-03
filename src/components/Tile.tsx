@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { TileProps, Tile as TileType } from "../types/game";
+import { TileProps } from "../types/global";
 import {
   Heart,
   Star,
