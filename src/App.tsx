@@ -1,6 +1,7 @@
 import React from "react";
 
 import { GameSetup, GameControls, GameBoard } from "./components";
+import { useGameTimer } from "./hooks/useGameTimer";
 import { useGameStore } from "./store/gameStore";
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
     startNewGame,
   } = useGameStore();
 
+  useGameTimer();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-100">
@@ -26,11 +29,9 @@ function App() {
       </header>
 
       <main className="max-w-5xl mx-auto px-4 py-8">
-        {/* TODO: Add game content here */}
         {!gameStarted ? (
           <GameSetup onStartGame={initializeGame} />
         ) : gridSize ? (
-          // TODO: Add game Controls and Board here here
           <>
             <GameControls
               players={players}
