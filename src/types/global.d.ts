@@ -28,6 +28,14 @@ export interface GameSetupProps {
   }) => void;
 }
 
+interface GameControlsProps {
+  players: Player[];
+  currentPlayer: number;
+  timeElapsed: number;
+  onRestart: () => void;
+  onNewGame: () => void;
+}
+
 export interface Tile {
   id: number;
   value: string;

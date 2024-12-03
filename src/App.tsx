@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GameSetup } from "./components";
+import { GameSetup, GameControls } from "./components";
 import { useGameStore } from "./store/gameStore";
 
 function App() {
@@ -28,7 +28,15 @@ function App() {
           <GameSetup onStartGame={initializeGame} />
         ) : gridSize ? (
           // TODO: Add game Controls and Board here here
-          <>Game Board/Controls</>
+          <>
+            <GameControls
+              players={players}
+              currentPlayer={0}
+              timeElapsed={timeElapsed}
+              onRestart={startNewGame}
+              onNewGame={startNewGame}
+            />
+          </>
         ) : null}
       </main>
     </div>
