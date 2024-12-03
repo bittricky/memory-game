@@ -34,3 +34,28 @@ export interface Tile {
   isFlipped: boolean;
   isMatched: boolean;
 }
+
+export interface GameStore {
+  tiles: Tile[];
+  flippedTiles: number[];
+  players: Player[];
+  currentPlayer: number;
+  timeElapsed: number;
+  isGameOver: boolean;
+  theme: Theme | null;
+  gridSize: GridSize | null;
+  gameMode: GameMode | null;
+  playerCount: number;
+  gameStarted: boolean;
+
+  initializeGame: (config: {
+    theme: Theme;
+    gridSize: GridSize;
+    gameMode: GameMode;
+    playerCount: number;
+  }) => void;
+  flipTile: (tileId: number) => void;
+  incrementTime: () => void;
+  resetGame: () => void;
+  startNewGame: () => void;
+}
