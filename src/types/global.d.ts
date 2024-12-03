@@ -42,6 +42,11 @@ interface GameBoardProps {
   onTileClick: (id: number) => void;
 }
 
+interface TileProps {
+  tile: TileType;
+  onClick: () => void;
+}
+
 export interface Tile {
   id: number;
   value: string;
