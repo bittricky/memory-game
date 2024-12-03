@@ -8,9 +8,12 @@ function App() {
     gameStarted,
     tiles,
     players,
+    currentPlayer,
     timeElapsed,
     gridSize,
     initializeGame,
+    flipTile,
+    resetGame,
     startNewGame,
   } = useGameStore();
 
@@ -31,15 +34,15 @@ function App() {
           <>
             <GameControls
               players={players}
-              currentPlayer={0}
+              currentPlayer={currentPlayer}
               timeElapsed={timeElapsed}
-              onRestart={startNewGame}
+              onRestart={resetGame}
               onNewGame={startNewGame}
             />
             <GameBoard
               tiles={tiles}
               gridSize={gridSize}
-              onTileClick={() => {}}
+              onTileClick={flipTile}
             />
           </>
         ) : null}

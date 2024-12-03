@@ -49,6 +49,15 @@ export const useGameStore = create<GameInterface>((set, get) => ({
     });
   },
 
+  incrementTime: () => set((state) => ({ timeElapsed: state.timeElapsed + 1 })),
+
+  resetGame: () => {
+    const { theme, gridSize, gameMode, playerCount } = get();
+    if (theme && gridSize && gameMode) {
+      get().initializeGame({ theme, gridSize, gameMode, playerCount });
+    }
+  },
+
   startNewGame: () =>
     set({
       gameStarted: false,
