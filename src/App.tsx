@@ -1,6 +1,19 @@
 import React from "react";
 
+import { GameSetup } from "./components";
+import { useGameStore } from "./store/gameStore";
+
 function App() {
+  const {
+    gameStarted,
+    tiles,
+    players,
+    timeElapsed,
+    gridSize,
+    initializeGame,
+    startNewGame,
+  } = useGameStore();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-100">
@@ -11,6 +24,12 @@ function App() {
 
       <main className="max-w-5xl mx-auto px-4 py-8">
         {/* TODO: Add game content here */}
+        {!gameStarted ? (
+          <GameSetup onStartGame={initializeGame} />
+        ) : gridSize ? (
+          // TODO: Add game Controls and Board here here
+          <>Game Board/Controls</>
+        ) : null}
       </main>
     </div>
   );
