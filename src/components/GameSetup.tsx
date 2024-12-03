@@ -28,14 +28,14 @@ const GameSetup: FC<GameSetupProps> = ({ onStartGame }) => {
                   flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200
                   ${
                     theme === "numbers"
-                      ? "bg-blue-50 border-blue-200"
-                      : "bg-white border-gray-100 hover:border-blue-200"
+                      ? "bg-purple-50 border-purple-200"
+                      : "bg-white border-gray-100 hover:border-purple-200"
                   }
                 `}
               >
                 <Hash
                   className={`w-5 h-5 ${
-                    theme === "numbers" ? "text-blue-500" : "text-gray-400"
+                    theme === "numbers" ? "text-purple-500" : "text-gray-400"
                   }`}
                 />
                 <span>Numbers</span>
@@ -46,14 +46,14 @@ const GameSetup: FC<GameSetupProps> = ({ onStartGame }) => {
                   flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200
                   ${
                     theme === "icons"
-                      ? "bg-blue-50 border-blue-200"
-                      : "bg-white border-gray-100 hover:border-blue-200"
+                      ? "bg-purple-50 border-purple-200"
+                      : "bg-white border-gray-100 hover:border-purple-200"
                   }
                 `}
               >
                 <Shapes
                   className={`w-5 h-5 ${
-                    theme === "icons" ? "text-blue-500" : "text-gray-400"
+                    theme === "icons" ? "text-purple-500" : "text-gray-400"
                   }`}
                 />
                 <span>Icons</span>
@@ -72,14 +72,14 @@ const GameSetup: FC<GameSetupProps> = ({ onStartGame }) => {
                   flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200
                   ${
                     gridSize === "4x4"
-                      ? "bg-blue-50 border-blue-200"
-                      : "bg-white border-gray-100 hover:border-blue-200"
+                      ? "bg-purple-50 border-purple-200"
+                      : "bg-white border-gray-100 hover:border-purple-200"
                   }
                 `}
               >
                 <Grid
                   className={`w-5 h-5 ${
-                    gridSize === "4x4" ? "text-blue-500" : "text-gray-400"
+                    gridSize === "4x4" ? "text-purple-500" : "text-gray-400"
                   }`}
                 />
                 <span>4 x 4</span>
@@ -90,14 +90,14 @@ const GameSetup: FC<GameSetupProps> = ({ onStartGame }) => {
                   flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200
                   ${
                     gridSize === "6x6"
-                      ? "bg-blue-50 border-blue-200"
-                      : "bg-white border-gray-100 hover:border-blue-200"
+                      ? "bg-purple-50 border-purple-200"
+                      : "bg-white border-gray-100 hover:border-purple-200"
                   }
                 `}
               >
                 <Grid
                   className={`w-5 h-5 ${
-                    gridSize === "6x6" ? "text-blue-500" : "text-gray-400"
+                    gridSize === "6x6" ? "text-purple-500" : "text-gray-400"
                   }`}
                 />
                 <span>6 x 6</span>
@@ -119,14 +119,14 @@ const GameSetup: FC<GameSetupProps> = ({ onStartGame }) => {
                   flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200
                   ${
                     gameMode === "single"
-                      ? "bg-blue-50 border-blue-200"
-                      : "bg-white border-gray-100 hover:border-blue-200"
+                      ? "bg-purple-50 border-purple-200"
+                      : "bg-white border-gray-100 hover:border-purple-200"
                   }
                 `}
               >
                 <Users
                   className={`w-5 h-5 ${
-                    gameMode === "single" ? "text-blue-500" : "text-gray-400"
+                    gameMode === "single" ? "text-purple-500" : "text-gray-400"
                   }`}
                 />
                 <span>Single</span>
@@ -140,15 +140,15 @@ const GameSetup: FC<GameSetupProps> = ({ onStartGame }) => {
                   flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200
                   ${
                     gameMode === "multiplayer"
-                      ? "bg-blue-50 border-blue-200"
-                      : "bg-white border-gray-100 hover:border-blue-200"
+                      ? "bg-purple-50 border-purple-200"
+                      : "bg-white border-gray-100 hover:border-purple-200"
                   }
                 `}
               >
                 <Users
                   className={`w-5 h-5 ${
                     gameMode === "multiplayer"
-                      ? "text-blue-500"
+                      ? "text-purple-500"
                       : "text-gray-400"
                   }`}
                 />
@@ -166,7 +166,7 @@ const GameSetup: FC<GameSetupProps> = ({ onStartGame }) => {
                 value={playerCount}
                 onChange={(e) => setPlayerCount(Number(e.target.value))}
                 className="w-full p-4 rounded-xl border-2 border-gray-100 
-                  focus:border-blue-200 focus:ring-2 focus:ring-blue-100 
+                  focus:border-purple-200 focus:ring-2 focus:ring-purple-100 
                   transition-all duration-200"
               >
                 {[2, 3, 4].map((num) => (
@@ -184,8 +184,8 @@ const GameSetup: FC<GameSetupProps> = ({ onStartGame }) => {
             onStartGame({ theme, gridSize, gameMode, playerCount })
           }
           className="w-full flex items-center justify-center gap-2 p-4 
-            bg-blue-50 border-2 border-blue-200 rounded-xl
-            hover:bg-blue-100 transition-all duration-200"
+            bg-purple-50 border-2 border-purple-200 rounded-xl
+            hover:bg-purple-100 transition-all duration-200"
         >
           <Play className="w-5 h-5" />
           <span>Start Game</span>

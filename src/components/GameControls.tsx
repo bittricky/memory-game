@@ -21,7 +21,7 @@ const GameControls: FC<GameControlsProps> = ({
               px-6 py-4 rounded-xl transition-all duration-200
               ${
                 currentPlayer === index
-                  ? "bg-blue-50 border-2 border-blue-200 shadow-sm"
+                  ? "bg-purple-50 border-2 border-purple-200 shadow-sm"
                   : "bg-white border-2 border-gray-100"
               }
             `}
@@ -47,7 +47,7 @@ const GameControls: FC<GameControlsProps> = ({
           <button
             onClick={onRestart}
             className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-100 
-              rounded-xl hover:border-blue-200 hover:shadow-sm transition-all duration-200"
+              rounded-xl hover:border-purple-200 hover:shadow-sm transition-all duration-200"
           >
             <RotateCcw className="w-5 h-5" />
             <span>Restart</span>
@@ -55,8 +55,8 @@ const GameControls: FC<GameControlsProps> = ({
 
           <button
             onClick={onNewGame}
-            className="flex items-center gap-2 px-6 py-3 bg-blue-50 border-2 border-blue-200 
-              rounded-xl hover:bg-blue-100 hover:shadow-sm transition-all duration-200"
+            className="flex items-center gap-2 px-6 py-3 bg-purple-50 border-2 border-purple-200 
+              rounded-xl hover:bg-purple-100 hover:shadow-sm transition-all duration-200"
           >
             <Plus className="w-5 h-5" />
             <span>New Game</span>
