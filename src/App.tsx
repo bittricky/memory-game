@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GameSetup, GameControls } from "./components";
+import { GameSetup, GameControls, GameBoard } from "./components";
 import { useGameStore } from "./store/gameStore";
 
 function App() {
@@ -35,6 +35,11 @@ function App() {
               timeElapsed={timeElapsed}
               onRestart={startNewGame}
               onNewGame={startNewGame}
+            />
+            <GameBoard
+              tiles={tiles}
+              gridSize={gridSize}
+              onTileClick={() => {}}
             />
           </>
         ) : null}
